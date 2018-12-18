@@ -95,7 +95,7 @@
 #![doc(html_root_url = "https://docs.rs/quote/0.6.10")]
 
 #[cfg(all(
-    not(all(target_arch = "wasm32", target_os = "unknown")),
+    not(any(all(target_arch = "wasm32", target_os = "unknown"), target_env = "musl")),
     feature = "proc-macro"
 ))]
 extern crate proc_macro;
